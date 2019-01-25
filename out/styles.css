@@ -1,0 +1,38 @@
+.date-picker {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.date-picker .place {
+  cursor: pointer;
+  flex: 1;
+}
+.date-picker .picker {
+  position: absolute;
+  display: none;
+  width: 400px;
+  height: 300px;
+  background: #FFF;
+  border: 1px solid #d2d1d1;
+  border-radius: 3px;
+}
+.date-picker .picker .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+.date-picker .picker .header .left {
+  min-width: 40px;
+}
+.date-picker .picker .header .title {
+  padding: 8px;
+  cursor: pointer;
+}
+.date-picker .picker .header .title:hover {
+  background-color: #eee;
+}
+.date-picker .picker .header .right {
+  min-width: 40px;
+}

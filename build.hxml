@@ -1,0 +1,7 @@
+-cp src
+-cp test
+-main Main
+-lib lessie
+-lib coconut.ui
+-lib coconut.vdom
+-js out/main.js

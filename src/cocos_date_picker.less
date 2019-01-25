@@ -1,0 +1,44 @@
+.date-picker {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .place {
+        cursor: pointer;
+        flex: 1;
+    }
+    .picker {
+        position: absolute;
+        display: none;
+        width: 400px;
+        height: 300px;
+        background: #FFF;
+        border: 1px solid #d2d1d1;
+        border-radius: 3px;
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            height: 40px;
+
+            .left {                
+                min-width: 40px;
+            }
+
+            .title {
+                padding: 8px;
+                cursor: pointer;
+            }
+
+            .title:hover {
+                background-color: #eee;
+            }
+
+            .right {
+                min-width: 40px;
+            }
+        }
+    }
+}
