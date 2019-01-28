@@ -4,4 +4,5 @@
 -lib lessie
 -lib coconut.ui
 -lib coconut.vdom
+-dce full
 -js out/main.js
