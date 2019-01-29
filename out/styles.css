@@ -10,8 +10,7 @@
 .date-picker .picker {
   position: absolute;
   display: none;
-  width: 400px;
-  height: 300px;
+  width: 300px;
   background: #FFF;
   border: 1px solid #d2d1d1;
   border-radius: 3px;
@@ -32,8 +31,42 @@
   cursor: pointer;
 }
 .date-picker .picker .header .title:hover {
-  background-color: #eee;
+  background-color: #2A75E6;
+  color: #FFF;
 }
 .date-picker .picker .header .right {
   min-width: 40px;
+}
+.date-picker .picker .content {
+  display: flex;
+  flex-direction: column;
+}
+.date-picker .picker .content .week-days {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.date-picker .picker .content .week-days .day {
+  font-size: 10pt;
+  color: #2A75E6;
+}
+.date-picker .picker .content .month-days {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.date-picker .picker .content .month-days .day {
+  display: flex;
+  cursor: pointer;
+  width: 14.28%;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+}
+.date-picker .picker .content .month-days .day:hover {
+  color: #FFF;
+  background-color: #2A75E6;
 }

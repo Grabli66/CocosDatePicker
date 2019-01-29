@@ -1215,12 +1215,47 @@ CocosDatePicker.prototype = $extend(coconut_ui_View.prototype,{
 	}
 	,render: function() {
 		var _gthis = this;
+		var weekdays = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
+		var __tmp = [];
+		__tmp.push("1");
+		__tmp.push("2");
+		__tmp.push("3");
+		__tmp.push("4");
+		__tmp.push("5");
+		__tmp.push("6");
+		__tmp.push("7");
+		__tmp.push("8");
+		__tmp.push("9");
+		__tmp.push("10");
+		__tmp.push("11");
+		__tmp.push("12");
+		__tmp.push("13");
+		__tmp.push("14");
+		__tmp.push("15");
+		__tmp.push("16");
+		__tmp.push("17");
+		__tmp.push("18");
+		__tmp.push("19");
+		__tmp.push("20");
+		__tmp.push("21");
+		__tmp.push("22");
+		__tmp.push("23");
+		__tmp.push("24");
+		__tmp.push("25");
+		__tmp.push("26");
+		__tmp.push("27");
+		__tmp.push("28");
+		__tmp.push("29");
+		__tmp.push("30");
+		var monthdays = __tmp;
 		var __r = [];
 		var __ret = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("date-picker")};
+		var attr = __ret;
 		var __r1 = [];
 		var __ret1 = { ref : _gthis.input.setter, type : "text", className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("place"), onclick : $bind(_gthis,_gthis.onclick)};
 		__r1.push(coconut_vdom__$Child_Child_$Impl_$.element("input",__ret1,null));
 		var __ret2 = { ref : _gthis.picker.setter, className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("picker")};
+		var attr1 = __ret2;
 		var __r2 = [];
 		var __ret3 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("header")};
 		var __r3 = [];
@@ -1229,14 +1264,44 @@ CocosDatePicker.prototype = $extend(coconut_ui_View.prototype,{
 		__r3.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret4,__r4));
 		var __ret5 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("title")};
 		var __r5 = [];
-		__r5.push(coconut_vdom__$Child_Child_$Impl_$.ofText("January 2019"));
+		__r5.push(coconut_vdom__$Child_Child_$Impl_$.ofText("Январь 2019"));
 		__r3.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret5,__r5));
 		var __ret6 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("right")};
 		var __r6 = [];
 		__r3.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret6,__r6));
 		__r2.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret3,__r3));
-		__r1.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret2,__r2));
-		__r.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret,__r1));
+		var __ret7 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("content")};
+		var attr2 = __ret7;
+		var __r7 = [];
+		var __ret8 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("week-days")};
+		var attr3 = __ret8;
+		var __r8 = [];
+		var _g = 0;
+		while(_g < weekdays.length) {
+			var day = weekdays[_g];
+			++_g;
+			var __ret9 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("day")};
+			var __r9 = [];
+			__r9.push(coconut_vdom__$Child_Child_$Impl_$.ofText(day.toUpperCase()));
+			__r8.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret9,__r9));
+		}
+		__r7.push(coconut_vdom__$Child_Child_$Impl_$.element("div",attr3,__r8));
+		var __ret10 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("month-days")};
+		var attr4 = __ret10;
+		var __r10 = [];
+		var _g1 = 0;
+		while(_g1 < monthdays.length) {
+			var day1 = monthdays[_g1];
+			++_g1;
+			var __ret11 = { className : tink_domspec__$ClassName_ClassName_$Impl_$.ofString("day")};
+			var __r11 = [];
+			__r11.push(coconut_vdom__$Child_Child_$Impl_$.ofText(day1));
+			__r10.push(coconut_vdom__$Child_Child_$Impl_$.element("div",__ret11,__r11));
+		}
+		__r7.push(coconut_vdom__$Child_Child_$Impl_$.element("div",attr4,__r10));
+		__r2.push(coconut_vdom__$Child_Child_$Impl_$.element("div",attr2,__r7));
+		__r1.push(coconut_vdom__$Child_Child_$Impl_$.element("div",attr1,__r2));
+		__r.push(coconut_vdom__$Child_Child_$Impl_$.element("div",attr,__r1));
 		return __r[0];
 	}
 	,__initAttributes: function(attributes) {

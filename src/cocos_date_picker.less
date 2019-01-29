@@ -10,8 +10,7 @@
     .picker {
         position: absolute;
         display: none;
-        width: 400px;
-        height: 300px;
+        width: 300px;        
         background: #FFF;
         border: 1px solid #d2d1d1;
         border-radius: 3px;
@@ -34,11 +33,51 @@
             }
 
             .title:hover {
-                background-color: #eee;
+                background-color: #2A75E6;
+                color: #FFF;
             }
 
             .right {
                 min-width: 40px;
+            }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+
+            .week-days {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                margin-top: 8px;
+                margin-bottom: 4px;
+
+                .day {
+                    font-size: 10pt;
+                    color: #2A75E6;
+                }
+            }
+
+            .month-days {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;                
+
+                .day {
+                    display: flex;
+                    cursor: pointer;
+                    width: 14.28%; 
+                    height: 32px;
+                    justify-content: center; 
+                    align-items: center;                  
+                }
+
+                .day:hover {
+                    color: #FFF;
+                    background-color: #2A75E6;
+                }
             }
         }
     }

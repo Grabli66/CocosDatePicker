@@ -80,6 +80,9 @@ class CocosDatePicker extends coconut.ui.View {
 	 * Render view
 	 */
 	function render() {
+        var weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+        var monthdays = [for (i in 1...31) Std.string(i)];
+
 		return hxx('
             <div class="date-picker">
                 <input ref=${input} type="text" class="place" onclick=${onclick} />
@@ -88,8 +91,20 @@ class CocosDatePicker extends coconut.ui.View {
                         <div class="left">
                             
                         </div>
-                        <div class="title">January 2019</div>
+                        <div class="title">Январь 2019</div>
                         <div class="right"></div>
+                    </div>
+                    <div class="content">
+                        <div class="week-days">
+                            <for ${day in weekdays}>
+                                <div class="day">${day.toUpperCase()}</div>
+                            </for>
+                        </div>
+                        <div class="month-days">
+                            <for ${day in monthdays}>
+                                <div class="day">${day}</div>
+                            </for>
+                        </div>
                     </div>
                 </div>
             </div>
