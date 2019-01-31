@@ -1,3 +1,5 @@
+import DateManager.DayInfo;
+import culture.CultureManager;
 import js.Browser.*;
 import js.html.InputElement;
 import js.html.Element;
@@ -22,9 +24,28 @@ class CocosDatePicker extends coconut.ui.View {
     @:ref var input:InputElement;
 
     /**
+     * Start date
+     */
+    @:attribute public var startDate:Date = @byDefault Date.now();
+
+    /**
+     * Culture for localization
+     */
+    @:attribute public var culture:String = @byDefault "en-GB";
+
+    /**
+     * Current date
+     */
+    @:state var currentDate:Date = Date.now();
+
+    /**
      * On component mount
      */
-    function viewDidMount() {        
+    function viewDidMount() {
+        var element = document.querySelector(".nav.left");
+        element.innerHTML = AssetHelper.inlineText('./src/assets/chevron-left.svg');
+        element = document.querySelector(".nav.right");
+        element.innerHTML = AssetHelper.inlineText('./src/assets/chevron-right.svg');
     }
 
     /**
@@ -49,14 +70,14 @@ class CocosDatePicker extends coconut.ui.View {
      * Register handlers for click in document
      */
     function registerBodyClick() {
-        document.addEventListener("click", onOuterClick);
+        //document.addEventListener("click", onOuterClick);
     }
 
     /**
      * Unregister handlers for click
      */
     function unregisterBodyClick() {
-        document.removeEventListener("click", onOuterClick);
+       // document.removeEventListener("click", onOuterClick);
     }
 
     /**
@@ -74,25 +95,64 @@ class CocosDatePicker extends coconut.ui.View {
      */
     function hidePicker() {
         picker.current.style.display = "none";
+    }   
+
+    /**
+     * Handle day click
+     * @param day 
+     */
+    function onDayClick(day:DayInfo) {
+        trace(day);
+    }
+
+    /**
+     * Handle left navigating button click
+     */
+    function onLeftClick() {
+        var year = currentDate.getFullYear();
+        var month = currentDate.getMonth();
+
+        currentDate = new Date(year, month - 1, 1, 0, 0, 0);
+        trace(currentDate);
+    }
+
+    /**
+     * Handle title click of calendar
+     */
+    function onTitleClick() {
+
+    }
+
+    /**
+     * Handle right navigating button click
+     */
+    function onRightClick() {        
+        var year = currentDate.getFullYear();
+        var month = currentDate.getMonth();
+
+        currentDate = new Date(year, month + 1, 1, 0, 0, 0);
+        trace(currentDate);
     }
 
 	/**
 	 * Render view
 	 */
 	function render() {
-        var weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-        var monthdays = [for (i in 1...31) Std.string(i)];
+        var cult = CultureManager.instance.getCulture(culture);
+        var weekdays = cult.nameDaysShortest;
+        var month = currentDate.getMonth();
+        var year = currentDate.getFullYear();
+        var monthName = cult.nameMonths[month];
+        var days = DateManager.instance.getMonthDays(month, year);
 
 		return hxx('
             <div class="date-picker">
                 <input ref=${input} type="text" class="place" onclick=${onclick} />
                 <div ref=${picker} class="picker">
                     <div class="header">
-                        <div class="left">
-                            
-                        </div>
-                        <div class="title">Январь 2019</div>
-                        <div class="right"></div>
+                        <div class="nav left" onclick=${onLeftClick}></div>
+                        <div class="title" onclick=${onTitleClick}>${monthName} ${year}</div>
+                        <div class="nav right" onclick=${onRightClick}></div>
                     </div>
                     <div class="content">
                         <div class="week-days">
@@ -101,8 +161,8 @@ class CocosDatePicker extends coconut.ui.View {
                             </for>
                         </div>
                         <div class="month-days">
-                            <for ${day in monthdays}>
-                                <div class="day">${day}</div>
+                            <for ${day in days}>
+                                <div class="day" onclick=${onDayClick(day)}>${day.day}</div>
                             </for>
                         </div>
                     </div>

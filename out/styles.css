@@ -1,7 +1,6 @@
 .date-picker {
   display: flex;
   flex-direction: row;
-  position: relative;
 }
 .date-picker .place {
   cursor: pointer;
@@ -9,7 +8,6 @@
 }
 .date-picker .picker {
   position: absolute;
-  display: none;
   width: 300px;
   background: #FFF;
   border: 1px solid #d2d1d1;
@@ -22,20 +20,38 @@
   justify-content: space-between;
   height: 40px;
   border-bottom: 1px solid #e4e4e4;
+  padding: 4px;
 }
-.date-picker .picker .header .left {
-  min-width: 40px;
+.date-picker .picker .header .nav {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+.date-picker .picker .header .nav path {
+  stroke: #aaa;
+  fill: none;
+  stroke-width: 2px;
+}
+.date-picker .picker .header .nav:hover {
+  background: #2A75E6;
+  cursor: pointer;
+}
+.date-picker .picker .header .nav:hover path {
+  stroke: #fff;
 }
 .date-picker .picker .header .title {
   padding: 8px;
   cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .date-picker .picker .header .title:hover {
   background-color: #2A75E6;
   color: #FFF;
-}
-.date-picker .picker .header .right {
-  min-width: 40px;
 }
 .date-picker .picker .content {
   display: flex;
@@ -52,6 +68,7 @@
 .date-picker .picker .content .week-days .day {
   font-size: 10pt;
   color: #2A75E6;
+  cursor: default;
 }
 .date-picker .picker .content .month-days {
   display: flex;
