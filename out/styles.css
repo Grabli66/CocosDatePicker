@@ -1,4 +1,6 @@
 .date-picker {
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
   display: flex;
   flex-direction: row;
 }
@@ -82,6 +84,13 @@
   height: 32px;
   justify-content: center;
   align-items: center;
+}
+.date-picker .picker .content .month-days .day.selected {
+  background-color: #2A75E6;
+  color: #fff;
+}
+.date-picker .picker .content .month-days .day.foreign {
+  color: #aaa;
 }
 .date-picker .picker .content .month-days .day:hover {
   color: #FFF;
